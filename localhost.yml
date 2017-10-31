@@ -1,0 +1,9 @@
+---
+- name: setup
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - { role: homebrew, tags: [ homebrew ] }
+    - { role: lang, tags: [ lang ] }
+    # - { role: gui, tags: [ gui ] }

@@ -1,0 +1,23 @@
+- name: nodejs - install nvm
+  shell: https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+- name: nodejs - install nodejs
+  shell: source ~/.bash_profile && nvm install 8
+
+- name: golang - install via homebrew
+  homebrew: name=golang state=latest
+- name: golang - set gopath
+  lineinfile: >
+    dest=~/.bash_profile
+    regexp="^export GOPATH="
+    line="export GOPATH=~/dev/go"
+- name: golang - set path "go/bin"
+  lineinfile: >
+    dest=~/.bash_profile
+    regexp="\$\(go env GOPATH\)\/bin"
+    line="export PATH=$PATH:$(go env GOPATH)/bin"
+- name: golang - mkdir under gopath
+  file: path=~/dev/go/{{item}} state=directory
+  with_items:
+    - src
+    - pkg
+    - bin

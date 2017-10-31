@@ -1,0 +1,6 @@
+- name: brew tap
+  homebrew_tap: tap={{ item }} state=present
+  with_items: "{{ homebrew_taps }}"
+
+- name: brew update
+  homebrew: update_homebrew=yes
