@@ -6,4 +6,4 @@
   roles:
     - { role: homebrew, tags: [ homebrew ] }
     - { role: lang, tags: [ lang ] }
-    # - { role: gui, tags: [ gui ] }
+    - { role: gui, tags: [ gui ] }
