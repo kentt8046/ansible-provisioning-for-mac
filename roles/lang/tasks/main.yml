@@ -1,7 +1,29 @@
+- name: nodejs - exists nvm
+  shell: source ~/.bash_profile && nvm ls default
+  register: nvm_check_default
+  ignore_errors: true
+  tags:
+    - nodejs
 - name: nodejs - install nvm
-  shell: https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+  shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+  when: nvm_check_default|failed
+  tags:
+    - nodejs
 - name: nodejs - install nodejs
-  shell: source ~/.bash_profile && nvm install 8
+  shell: source ~/.bash_profile && nvm install --lts
+  tags:
+    - nodejs
+- name: nodejs - nodejs - exists yarn
+  shell: source ~/.bash_profile && yarn
+  register: yarn_check
+  ignore_errors: true
+  tags:
+    - nodejs
+- name: nodejs - install yarn
+  shell: curl -o- -L https://yarnpkg.com/install.sh | bash
+  when: yarn_check|failed
+  tags:
+    - nodejs
 
 - name: golang - install via homebrew
   homebrew: name=golang state=latest
