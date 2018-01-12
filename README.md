@@ -4,5 +4,5 @@
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew update
 $ brew install ansible
-$ ansible-playbook -i hosts -vv localhost.yml
+$ ansible-playbook -vv localhost.yml
 ```

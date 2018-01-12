@@ -7,3 +7,4 @@
     - { role: homebrew, tags: [ homebrew ] }
     - { role: lang, tags: [ lang ] }
     - { role: gui, tags: [ gui ] }
+    - { role: init, tags: [ init ] }

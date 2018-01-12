@@ -1,0 +1,2 @@
+- name: write in .bashrc
+  copy: src=.bashrc dest=~/.bashrc backup=yes
