@@ -9,10 +9,20 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir=/Applications"
   with_items:
+    # ide
     - visual-studio-code
+    - intellij-idea-ce
+    # browser
+    - google-chrome
+    - firefoxdeveloperedition
+    # developer tool
     - gitkraken
     - iterm2
-    - google-chrome
-    - firefox
     - docker
     - sequel-pro
+
+- name: docker - setup completion
+  shell: >
+    ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker;
+    ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine;
+    ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose;
