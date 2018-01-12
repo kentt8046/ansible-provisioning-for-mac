@@ -43,3 +43,9 @@
     - src
     - pkg
     - bin
+
+- name: scala - install via homebrew
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - scala
+    - sbt
